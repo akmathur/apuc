@@ -7,12 +7,12 @@ $(document).ready(function(){
 
     //AJAX file upload for required elements
     $(".photo-widget-container .upload-btn").live("click", function(){
-        var refresh_url = '/profiles/' + $(this).parent().attr("data-profile") + '/refresh_photo';
-        var update_photo_url = '/profiles/' + $(this).parent().attr("data-profile") + '/update_photo';
+        var refresh_url = '/profiles/' + $(this).parents(".photo-widget-container").attr("data-profile") + '/refresh_photo';
+        var update_photo_url = '/profiles/' + $(this).parents(".photo-widget-container").attr("data-profile") + '/update_photo';
         $.ajaxFileUpload({
             url: update_photo_url,
             secureuri:false,
-            fileElementId: $(this).parent().attr("id"),
+            fileElementId: $(this).parents(".photo-widget-container").attr("id"),
             success: function (data, status){
                 if(typeof(data.error) != 'undefined'){
                     if(data.error != '')

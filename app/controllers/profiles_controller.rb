@@ -18,8 +18,8 @@ class ProfilesController < ApplicationController
     @profile.crop = 1
     @profile.crop_x = 0
     @profile.crop_y = 0
-    @profile.crop_w = Profile::AVATAR_NW
-    @profile.crop_h = Profile::AVATAR_NH
+    @profile.crop_w = @profile.req_width
+    @profile.crop_h = @profile.req_height
   end
 
   def replace_photo

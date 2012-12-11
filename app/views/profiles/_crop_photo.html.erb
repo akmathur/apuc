@@ -32,8 +32,8 @@
       $('#' + '<%= "cropbox-#{profile.id}" %>').Jcrop({
           onSelect: showPreview,
           onChange: showPreview,
-          setSelect: [ 0, 0, <%= Profile::AVATAR_NW %>, <%= Profile::AVATAR_NH %> ],
-          aspectRatio: <%= Profile::AVATAR_NW %>/<%= Profile::AVATAR_NH %>
+          setSelect: [ 0, 0, <%= profile.req_width %>, <%= profile.req_height %> ],
+          aspectRatio: <%= profile.req_width %>/<%= profile.req_height %>
       });
   });
 </script>

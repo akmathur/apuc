@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211062929) do
+ActiveRecord::Schema.define(:version => 20121211143222) do
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20121211062929) do
     t.integer  "crop_y"
     t.integer  "crop_w"
     t.integer  "crop_h"
+    t.integer  "req_width"
+    t.integer  "req_height"
   end
 
 end
