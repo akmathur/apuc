@@ -1,0 +1,12 @@
+<h2>AJAX photo upload and crop demo</h2>
+
+<div class="photo-widget-container" id="photo-<%= @profile.id %>" data-profile="<%= @profile.id %>">
+  <!-- if there is a photo, show that or else show an option to upload -->
+  <% if @profile.avatar? %>
+    <%= render :partial => 'avatar_img', :locals => { :profile => @profile } %>
+  <% else %>
+    <%= render :partial => 'avatar_upload', :locals => { :profile => @profile } %>
+  <% end %>
+</div>
+
+<%= image_tag('ajax-loader.gif', :id => 'upload-indicator', :class => "invisible") %>

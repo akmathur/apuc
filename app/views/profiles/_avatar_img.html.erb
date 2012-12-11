@@ -1,0 +1,16 @@
+<h3>Thumbnail version</h3>
+<div style="padding-top:10px;">
+  <%= image_tag(profile.avatar.url(:thumb)) %>
+</div>
+
+<h3>Cropped version</h3>
+<div style="padding-top:10px;">
+  <%= image_tag(profile.avatar.url(:normal)) %>
+</div>
+
+<div>
+  <%= link_to 'Change image', replace_photo_profile_path(profile), :remote => true %>
+</div>
+
+<br />
+<br />

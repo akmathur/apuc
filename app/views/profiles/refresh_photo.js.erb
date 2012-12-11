@@ -1,0 +1,1 @@
+$("#photo-<%= @profile.id %>").replaceWith("<%=j render :partial => "crop_photo", :locals => { :profile => @profile } %>");
