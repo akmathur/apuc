@@ -1,0 +1,24 @@
+<p>
+  <%= link_to "&laquo; back to profiles".html_safe, profiles_path %>
+</p>
+
+<div class="photo-widget-container">
+  <%= form_for @profile do |f| %>
+    <p>
+      <b><%= f.label :name %></b>:<br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <b><%= f.label :req_width, "Required Width" %></b>:<br />
+      <%= f.text_field :req_width, :size => 4 %>px
+    </p>
+    <p>
+      <b><%= f.label :req_height, "Required Height" %></b>:<br />
+      <%= f.text_field :req_height, :size => 4 %>px
+    </p>
+
+    <p>
+      <%= f.submit "Save" %>
+    </p>
+  <% end %>
+</div>

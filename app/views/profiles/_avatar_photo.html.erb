@@ -1,0 +1,10 @@
+<% if profile.avatar? %>
+  <p>
+    <b>Avatar</b>:<br />
+    <%= image_tag profile.avatar(:normal), :style => "max-width: #{profile.req_width}px; max-height: #{profile.req_height}px" %>
+  </p>
+<% else %>
+  <p>
+    <em>No avatar</em>
+  </p>
+<% end %>

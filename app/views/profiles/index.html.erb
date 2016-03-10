@@ -1,12 +1,29 @@
-<h2>AJAX photo upload and crop demo</h2>
+<h3>Profiles</h3>
 
-<div class="photo-widget-container" id="photo-<%= @profile.id %>" data-profile="<%= @profile.id %>">
-  <!-- if there is a photo, show that or else show an option to upload -->
-  <% if @profile.avatar? %>
-    <%= render :partial => 'avatar_img', :locals => { :profile => @profile } %>
-  <% else %>
-    <%= render :partial => 'avatar_upload', :locals => { :profile => @profile } %>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Avatar</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <% if @profiles.blank? %>
+      <tr>
+        <td colspan="3"><em>No profiles</em></td>
+      </tr>
+    <% end %>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= link_to profile.name, profile_path(profile) %></td>
+        <td><%= image_tag profile.avatar(:thumb) %></td>
+        <td>
+          <%= link_to "x", profile_path(profile), :method => :delete, :class => "delete", :title => "Delete this Profile", :confirm => "Delete this profile?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= image_tag('ajax-loader.gif', :id => 'upload-indicator', :class => "invisible") %>
+<p>
+  <b><%= link_to "Create New Profile", new_profile_path %></b>
+</p>

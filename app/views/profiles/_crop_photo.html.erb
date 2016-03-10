@@ -1,22 +1,21 @@
-<div class="photo-widget-container" id="photo-<%= profile.id %>" data-profile="<%= profile.id %>">
-  <%= form_for(profile,
-              :remote => true,
-              :url => update_crop_profile_path(profile)) do |f| %>
-    <h2>Crop picture:</h2>
-    <fieldset>
-      <%= image_tag profile.avatar.url(:normal), :id => "cropbox-#{profile.id}" %>
+<%= form_for(profile,
+            :remote => true,
+            :url => update_photo_profile_path(profile)) do |f| %>
+  <h2>Crop picture:</h2>
+  <fieldset>
+    <%= image_tag profile.avatar.url(:normal), :id => "cropbox-#{profile.id}" %>
 
-      <%= f.text_field :crop, :id => 'crop', :size => 2, :class => "visible" %>
-      <%= f.text_field :crop_x, :id => 'crop_x', :size => 2, :class => "visible" %>
-      <%= f.text_field :crop_y, :id => 'crop_y', :size => 2, :class => "visible" %>
-      <%= f.text_field :crop_w, :id => 'crop_w', :size => 2, :class => "visible" %>
-      <%= f.text_field :crop_h, :id => 'crop_h', :size => 2, :class => "visible" %>
+    <%= f.hidden_field :crop, :id => 'crop' %>
+    <%= f.hidden_field :crop_x, :id => 'crop_x' %>
+    <%= f.hidden_field :crop_y, :id => 'crop_y' %>
+    <%= f.hidden_field :crop_w, :id => 'crop_w' %>
+    <%= f.hidden_field :crop_h, :id => 'crop_h' %>
 
-      <br />
-      <%= submit_tag 'crop now' %>
-    </fieldset>
-  <% end %>
-</div>
+    <br />
+    <%= submit_tag 'crop now' %>
+  </fieldset>
+<% end %>
+
 
 <script type="text/javascript">
   function showPreview(coords){

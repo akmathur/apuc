@@ -1,0 +1,24 @@
+<p>
+  <%= link_to "&laquo; back to profiles".html_safe, profiles_path %>
+</p>
+
+<div class="box">
+  <p>
+    <b>Name</b>:<br />
+    <%= @profile.name %><br />
+    (<em>Required dimensions for avatar: <%= @profile.req_width %>X<%= @profile.req_height %></em>)
+  </p>
+
+  <%# the uploaded photo will be presented inside this div for cropping %>
+  <div class="photo-widget-container" id="avatar-photo">
+    <%= render :partial => "avatar_photo", :locals => {:profile => @profile} %>
+  </div>
+  <p id="upload-form" class="invisible">
+    <%= fields_for :profile, @profile do |f| %>
+      <%= f.file_field :avatar %>
+      <%= f.submit "Upload", :class => "upload-btn", :data => {:profile => @profile.id} %>
+    <% end %>
+  </p>
+  <%= link_to "change photo", "#", :class => "change-photo" %>
+  <%= image_tag('ajax-loader.gif', :id => 'upload-indicator', :class => "invisible") %>
+</div>
