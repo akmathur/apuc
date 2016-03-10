@@ -18,7 +18,7 @@ Make sure you have installed the following:
 * Rails Paperclip gem to handle file upload
 * jQuery (> 1.6.1)
 * Jcrop jQuery plugin (from {here}[http://deepliquid.com/content/Jcrop.html])
-* ajaxfileupload.js (found {here}[https://gist.github.com/justinethier/2776054] as well as {here}[https://github.com/davgothic/AjaxFileUpload]
+* ajaxfileupload.js (found {here}[https://gist.github.com/justinethier/2776054] as well as {here}[https://github.com/davgothic/AjaxFileUpload])
 
 Then, download the application, run the rails server and go to localhost:3000.
 1. Click on "Create New Profile". Enter a name for the profile also enter dimensions and Save.
@@ -41,11 +41,6 @@ The file project.js sets up the AJAX call when the file upload button is clicked
 
 == Notes
 
-* Adding crop related columns to profile (+crop_x+, +crop_y+, +crop_w+, +crop_h+,
-+req_width+ and +req_height+) are not strictly required. You could declare them as
-+attr_accessor+ in the +Profile+ model and that would work just fine. Adding columns
-to the DB is safer - you can replay the cropping action later if you want for some reason.
+* Adding crop related columns to profile (+crop_x+, +crop_y+, +crop_w+, +crop_h+, +req_width+ and +req_height+) are not strictly required. You could declare them as +attr_accessor+ in the +Profile+ model and that would work just fine. Adding columns to the DB is safer - you can replay the cropping action later if you want for some reason.
 
-* Typically in an application, required width and required height will be hard-coded
-in the application. e.g. you may want profile pictures to be always 160x160. There
-is no need to add DB columns req_width and req_height in such cases.
+* Typically in an application, required width and required height will be hard-coded in the application. e.g. you may want profile pictures to be always 160x160. There is no need to add DB columns req_width and req_height in such cases.
